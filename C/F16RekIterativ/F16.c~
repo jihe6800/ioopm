@@ -1,0 +1,24 @@
+unsigned int RecursiveFaculty(unsigned int index){
+  
+  if(index == 1){
+    return 1;
+  } else {
+    return index * RecursiveFaculty(index-1);
+  }
+}
+
+unsigned int IterativeFaculty(unsigned int index){
+
+  unsigned int fact = 1;
+  for(int i=0;i<index;i++){
+    fact = i * fact;
+  }
+
+}
+
+
+int main(){
+
+
+  return 0;
+}

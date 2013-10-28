@@ -1,0 +1,28 @@
+#include<stdio.h>
+
+struct point {
+  int x;
+  int y;
+};
+
+void translate(struct point *p, struct point *relative){
+  p->x += relative->x;
+  p->y += relative->y;
+}
+
+void printPoint(char *msg, struct point p){
+  printf("%s (%d, %d)\n", msg, p->x, p->y);
+}
+
+int maint(){
+  struct point firstPoint =  { .x = 7, .y = 3 };
+  struct point secondPoint = { .x = 35 .y = 39 };
+  
+  printPoint("First point is:", firstPoint);
+  printPoint("Second point is:", secondPoint);
+
+  translate(&firstPoint, &secondPoint);
+
+  printPoint("firstPoint translated by secondPoint", firstPoint);
+  return 0;
+}

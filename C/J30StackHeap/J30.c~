@@ -1,0 +1,22 @@
+int main(){
+
+  unsigned int FibonacciStack(unsigned int index){
+
+    int array[index];
+    
+    for(int i=0;i<index;i++){
+      if(i == 0 || i == 1){
+	array(i) = i;
+      } else {
+	array(i) = array(i-1) + array(i-2);
+      }
+    }
+    
+    for(int n=0;n<index;n++){
+      printf("Fibonacci Number at index %d is: %d", n, array[n]);
+    }
+      
+  }
+
+  return 0;
+}
