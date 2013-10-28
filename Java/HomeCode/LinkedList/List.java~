@@ -1,0 +1,60 @@
+     public class List {
+    private Link first = null;
+    //Link last;
+    
+    public void prepend(Object element) {
+	first = new Link(first, element);
+    }
+    
+    public boolean contains(Object element) {
+	if(first == null) return false;
+	
+	return first.contains(element);
+    }
+
+    public String toString() {
+      	return "[" + ((this.first == null) ? "" : this.first.stringify()) + "]";
+    }
+
+class Link {
+    public Link() {
+	this(null, null);
+    }
+
+    public Link(Link next, Object element){
+	this.next = next;
+	this.element = element;
+    }
+    
+    private Link next;
+    private Object element;
+    
+    public Object getElement(){
+	return this.element;
+    }
+
+    public Link getNext(){
+	return this.next;
+    }
+
+    public boolean contains(Object element){
+	if(element == this.element) return true;
+	if(this.next == null) return false;
+	
+	return next.contains(element);
+    }
+
+    public String toString() {
+	return element.toString() + ((this.next == null) ? "" : ", ");
+    }
+
+    public String stringify() {
+	return toString() + ((this.next == null) ? "" : this.next.stringify());	
+    }
+    
+    
+}
+     }
+    
+
+	

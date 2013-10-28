@@ -1,0 +1,8 @@
+public class Main {
+    public class static Main(String[] args) {
+	FiveDices d = new FiveDices();
+
+	d.roll();
+
+    }
+}

@@ -1,0 +1,25 @@
+public class PairOfDice {
+    // int numberOfSides;
+
+    public PairOfDice() {
+	this(6);
+    }
+    
+    public PairOfDice(int numberOfSides){
+	Die firstDie = new Die(numberOfSides);
+	Die secondDie = new Die(numberOfSides);
+    }
+
+    public void roll() {
+	firstDie.roll();
+	secondDie.roll();
+    }
+
+    public int getValue(Die die) {
+	die.getValue();
+    }
+
+    public int toString() {
+	
+    }
+}

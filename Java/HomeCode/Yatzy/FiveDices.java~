@@ -1,0 +1,22 @@
+public class FiveDices {
+    Die firstDie =  new Die();
+    Die secondDie = new Die();
+    Die thirdDie =  new Die();
+    Die fourthDie = new Die();
+    Die fifthDie =  new Die();
+    private int rolls = 0;
+    
+
+    public void rollAll() {
+	firstDie.roll();
+	secondDie.roll();
+	thirdDie.roll();
+	fourthDie.roll();
+	fifthDie.roll();
+	rolls += 1;
+    }
+
+    public void save() {
+	this.setSave();
+    }
+}

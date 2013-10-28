@@ -1,0 +1,21 @@
+public class Die {
+    private int numberOfSides;
+    private int value;
+
+    public Die() {
+	numberOfSides = 6;
+	value = 0;
+    }
+
+    public void roll(){
+	value = (int) ((Math.random()*numberOfSides) + 1);
+    }
+
+    public int getValue(){
+	return value;
+    }
+
+    
+
+
+}
