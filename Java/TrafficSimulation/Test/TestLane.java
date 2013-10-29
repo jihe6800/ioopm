@@ -68,15 +68,15 @@ public class TestLane extends TestCase {
 	}
 	
 	public void testToString() {
-		assertTrue("toString() in Lane does not work.", lane.toString().equals("Lane(E, E, E, E)"));
+		assertTrue("toString in Lane doesn't show a empty lane when it's empty.", lane.toString().equals("Lane(E, E, E, E)"));
 		lane.putLast(c1);
 		lane.step();
 		lane.step();
 		lane.putLast(c2);
-		assertTrue("toString() in Lane does not work.", lane.toString().equals("Lane(E, #, E, #)"));
+		assertTrue("toString in Lane doesn't move cars as expected.", lane.toString().equals("Lane(E, #, E, #)"));
 		lane.step();
 		lane.step();
-		assertTrue("toString() in Lane does not work.", lane.toString().equals("Lane(#, #, E, E)"));
+		assertTrue("toString() in Lane doesn't move cars as expected.", lane.toString().equals("Lane(#, #, E, E)"));
 	}
 	
 	

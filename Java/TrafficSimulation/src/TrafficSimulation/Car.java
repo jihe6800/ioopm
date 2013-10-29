@@ -8,7 +8,7 @@
 
 package TrafficSimulation;
 
-public class Car {
+public class Car{
     
 	private int bornTime;
     private int destination; // 1 = turn, 0=straight

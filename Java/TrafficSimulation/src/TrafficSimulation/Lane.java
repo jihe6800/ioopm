@@ -3,7 +3,7 @@
 import customExceptions.OverflowException;
 import TrafficSimulation.Car;
 
-public class Lane {
+public class Lane implements TrafficSystemPart {
         
     private Car[] theLane;
     private int length;

@@ -13,13 +13,12 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class TrafficSystem {
-   
-    private Lane r0;
-    private Lane r1;
-    private Lane r2;
-    private Light s1;
-    private Light s2;
-
+    
+    Lane r0;
+    Lane r1;
+    Lane r2;
+    Light s1;
+    Light s2;
    
     private int arrivalRate;
     private int carTurn;
@@ -197,6 +196,51 @@ public class TrafficSystem {
 	time++;
 	    }
 	}
+    }
+    
+    /** returns the average time for a car to pass the simulation.
+     * 
+     * @return the average time for a car to pass the simulation.
+     */
+    
+    public int getAverageGoThroughTime() {
+    	return averageGoThroughTime;
+    }
+    
+    /** returns the maximum time it took for a car to pass the simulation.
+     * 
+     * @return the maximum time it took for a car to pass the simulation.
+     */
+    
+    public int getMaxGoThroughTime() {
+    	return maxGoThroughTime;
+    }
+    
+    /**  returns the number of time a slip road were full during the simulation.
+     * 
+     * @return the number of times a slip road were full during the simulation.
+     */
+    
+    public int getFullSlipRoad() {
+    	return fullSlipRoad;
+    }
+    
+    /** returns the number of times a new car couldn't enter the simulation
+     * 
+     * @return the number of times a new car couldn't enter the simulation
+     */
+    
+    public int getFullLane() {
+    	return fullLane;
+    }
+    
+    /** returns the number of cars which passed the simulation.
+     * 
+     * @return the number of cars which passed the simulation.
+     */
+    
+    public int getCarPassed() {
+    	return carPassed;
     }
 
     /** printStatistics prints all the statistics collected so far.

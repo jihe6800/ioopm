@@ -1,14 +1,8 @@
-import java.io.FileInputStream;
-import java.util.Properties;
-
 import TrafficSimulation.Car;
 import TrafficSimulation.Lane;
 import TrafficSimulation.Light;
 import TrafficSimulation.TrafficSystem;
 import junit.framework.TestCase;
-import java.io.IOException;
-import java.util.Properties;
-import java.io.FileInputStream;
 
 public class TestTrafficSystem extends TestCase {
 		    
@@ -98,18 +92,49 @@ public class TestTrafficSystem extends TestCase {
 		    	assertEquals("goThroughTime in TrafficSystem doesn't calculate the correct time.", tsTurn.goThroughTime(car), 6);
 		    }
 		    
-		    public void testPrintStatistics() {
+		    public void testGetAverageGoThroughTime() {
 		    	
-		    	for(int i=0;i<10;i++) {
+		    	for(int i=0;i<20;i++){
 		    		tsTurn.step();
-		    		System.out.println(tsTurn.print());
 		    	}
-		    	assertTrue("", );
-		    	tsTurn.printStatistics();
+		    	
+		    	assertTrue("getAverageGoThroughTime in TrafficSystem doesn't return the correct time. There is a error in step", tsTurn.getAverageGoThroughTime() == 12);
 		    }
-
 		    
+		    public void testGetMaxGoThroughTime() {
+		    	
+		    	for(int i=0;i<20;i++) {
+		    		tsTurn.step();
+		    	}
+		    	
+		    	assertTrue("getMaxGoThroughTime in TrafficSystem doesn't return the correct time. There is an error in step.", tsTurn.getMaxGoThroughTime() == 16);   	
+		    }
 		    
-		
-	
+		    public void testGetFullSlipRoad() {
+		    	
+		    	for(int i=0;i<20;i++) {
+		    		tsTurn.step();
+		    	}
+		    	
+		    	assertTrue("getFullSlipRoad in TrafficSystem doesn't return the correct time. There is an error in step.", tsTurn.getFullSlipRoad() == 9);
+		    }
+		    
+		    public void testGetFullLane() {
+		    	
+		    	for(int i=0;i<20;i++) {
+		    		tsTurn.step();
+		    	}
+		    	
+		    	assertTrue("getFullLane in TrafficSystem doesn't return the correct time. There is an error in step.", tsTurn.getFullLane() == 9);
+		    }
+		    
+		    public void testGetCarPassed() {
+		    	
+		    	for(int i=0;i<20;i++) {
+		    		tsTurn.step();
+		    	}
+		    	
+		    	assertTrue("getCarPassed in TrafficSystem doesn't return the correct time. There is an error in step.", tsTurn.getCarPassed() == 5);
+		    }
+		    
 }
