@@ -13,6 +13,7 @@ public class TestLane extends TestCase {
 	public void testPutLast() {
 		try {
 			lane.putLast(c1);
+			assertTrue("putLast in Lane doesn't put the given car at the first position in the lane.", lane.lastFree() == false);
 			lane.putLast(c2);
 			fail("putLast in Lane does not throw a OverflowException.");
 		} catch (OverflowException e){
