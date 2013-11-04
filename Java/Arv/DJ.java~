@@ -1,0 +1,11 @@
+public class DJ {
+    String musicStyle;
+
+    public DJ(String firstName, String lastName, int age, String workingAs, String musicStyle){
+	super(firstName, lastName, age, workingAs);
+	System.out.println("Music Style: " + musicStyle);
+    }
+
+
+
+}
