@@ -41,4 +41,12 @@ public class Die {
 	    return false;
 	}
     }
+
+    public boolean same(Die otherDie){
+	if(this == otherDie){
+	    return true;
+	} else {
+	    return false;
+	}
+    }
 }

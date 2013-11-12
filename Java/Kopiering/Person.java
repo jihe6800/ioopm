@@ -1,4 +1,4 @@
-public class Person {
+public class Person extends Object {
     private int day;
     private int month;
     private int year;

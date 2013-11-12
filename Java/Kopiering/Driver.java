@@ -23,7 +23,7 @@ public class Driver {
 	int[] anotherArray = p.getLastFour();
 	System.out.println("" + anotherArray[0] + anotherArray[1] + anotherArray[2] + anotherArray[3]);
 	
-	System.out.println(p.getBirthOfDate());
+
     }
 
 }

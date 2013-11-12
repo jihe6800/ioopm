@@ -7,20 +7,20 @@ public class Driver {
 		
 		
 		int processors = Runtime.getRuntime().availableProcessors();
-		//System.out.println("Equals: " + Quicksort.equals(array, arrayClone));
+		//System.out.println("Equals: " + Quicksort.equals(array, array2));
 		//System.out.println("Equals: " + Quicksort.equals(array, array3));
 		System.out.println("Number of processors: " + processors);
 	
 		long time = 0;
 		long time2 = 0;
 		long time3 = 0;
-		int x = 100;
+		int numberOfTests = 30;
 
-		for(int i=0;i<x;i++){
+		for(int i=0;i<numberOfTests;i++){
 
 		    // Creates three different equal arrays 
 		    int[] array = Quicksort.arrayGenerator(1000000);
-		    int[] arrayClone = Quicksort.clone(array);
+		    int[] array2 = Quicksort.clone(array);
 		    int[] array3 = Quicksort.clone(array);		
 
 		    long startTime = System.currentTimeMillis();
@@ -29,7 +29,7 @@ public class Driver {
 		    time += (endTime - startTime);
 	    
 		    long startTime2 = System.currentTimeMillis();
-		    QuicksortOriginal.sQsortOriginal(arrayClone);
+		    QuicksortOriginal.sQsortOriginal(array2);
 		    long endTime2 = System.currentTimeMillis();
 		    time2 += (endTime2 - startTime2);
 
@@ -43,9 +43,9 @@ public class Driver {
 
 		}
 
-		System.out.println("Average time in milliseconds for quicksort with insertionsort " + x + "times: " + time/x);
-		System.out.println("Average time in milliseconds for quicksort " + x + "times: " + time2/x);
-		System.out.println("Average time in milliseconds for parallel quicksort " + x + "times: " + time3/x);
+		System.out.println("Average time in milliseconds for quicksort with insertionsort " + numberOfTests + " times: " + time/numberOfTests);
+		System.out.println("Average time in milliseconds for quicksort " + numberOfTests + " times: " + time2/numberOfTests);
+		System.out.println("Average time in milliseconds for parallel quicksort " + numberOfTests + " times: " + time3/numberOfTests);
 		//System.out.println(Quicksort.sortCheck(array3));
 	}
 
