@@ -1,0 +1,9 @@
+public class Binary {
+    SymExpr left;
+    SymExpr right;
+	
+    public Binary() {
+	
+    }
+
+}

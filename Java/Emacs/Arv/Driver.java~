@@ -1,0 +1,11 @@
+public Driver {
+
+    public static void main(String[] argv) {
+
+	Person p = new Person ("Jimmy", "Helmersson");
+	Teacher t = new Teacher ("Gunnar", "Berg", "Uppsala Universitet");
+
+    }
+
+
+}
