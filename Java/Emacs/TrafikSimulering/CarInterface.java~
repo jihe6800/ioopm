@@ -1,0 +1,31 @@
+/** Car is a car which contains a bornTime, currentPosition and a destination. 
+ *  bornTime and destination are arguments for the constructor, 1 is added to 
+ *  the currentPosition each time the car moves one step.
+ *   
+ *  Jimmy Helmersson & Matlida Trodin
+ *
+ */
+
+package TrafficSimulation;
+
+public interface CarInterface {
+
+    /** Gets the destination of the current car. 
+     *
+     * @return Returns 1 if the car is going to turn, else 0.
+     */
+
+    public int getDestination();
+
+
+    /** Gets the bornTime for the current car.
+     *
+     * @return Returns the bornTime of the current car.
+     */
+
+    public int getBornTime();
+    public int getCurrentPosition();
+    public void setCurrentPosition(int currentPosition);
+    public String toString();
+
+}

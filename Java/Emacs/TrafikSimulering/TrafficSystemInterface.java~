@@ -1,0 +1,35 @@
+/** TrafficSystem simulates the scenario. This class creates all the Lights, Lanes and
+ *  Cars. The cunstructor takes the arguments arrivalRate, carTurn, the length of all lanes,
+ *  green for the lights and period for the lights. 
+ *  It also collects all data, which is: everytime a SlipRoad is full, everytime
+ *  the whole lane is full, maxGoThroughTime for a car, averageGoThroughTime for a car
+ *  and carPassed, which is the amount of cars which passed the simulation.
+ *
+ *  Jimmy Helmersson & Matlida Trodin
+ */
+
+package TrafficSimulation;
+
+import TrafficSimulation.Car;
+import customExceptions.OverflowException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public interface TrafficSystemInterface {
+
+    /** readParameters gets all values for the lenght of the lanes, period and green for the
+     *  Lights, the arrivalRate and carTurn in percentage from a properties file.
+     */
+
+    public void readParameters();
+
+    
+    /** Calculates the time it took for a car to drive through the simulation.
+     *
+     *  @param c is a car which have passed the simulation. 
+     */
+
+    public int goThroughTime(Car c);
+
+}
