@@ -19,7 +19,7 @@ public class Driver {
 		for(int i=0;i<numberOfTests;i++){
 
 		    // Creates three different equal arrays 
-		    int[] array = Quicksort.arrayGenerator(1000000);
+		    int[] array = Quicksort.arrayGenerator(100000);
 		    int[] array2 = Quicksort.clone(array);
 		    int[] array3 = Quicksort.clone(array);		
 
