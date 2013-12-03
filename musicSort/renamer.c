@@ -16,7 +16,7 @@ void renameAndMove(char *path, char *filename, char *artist, char *album, char *
 }
 
 //used to return int
-int setUnknown(char *artist, char *album, char *title){
+void setUnknown(char *artist, char *album, char *title){
   strcpy(artist,"Unknown Artist");
   strcpy(album,"Unknown Album");
   strcpy(title,"Unknown Track");

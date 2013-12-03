@@ -7,6 +7,7 @@
 char *convert_content(const char *content, size_t size);
 
 
+
 /**
  * Returns 1 if the meta data of 'file' starts with 'ID3', else 0.
  *

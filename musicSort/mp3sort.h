@@ -13,6 +13,10 @@
  * @return The dot and whats after.
  */
 const char *get_filename_ext(const char *filename);
+
+/**
+ * Returns 1, for "dirent.h"
+ */
 int one (const struct dirent *unused);
 
 
