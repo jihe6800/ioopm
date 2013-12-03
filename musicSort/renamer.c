@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <sys/stat.h>
 
-int renameAndMove(char *path, char *filename, char *artist, char *album, char *title){
+//Used to return int.
+void renameAndMove(char *path, char *filename, char *artist, char *album, char *title){
     char dirname[128];
     strcpy(dirname,path);
     strcat(dirname,artist);
@@ -12,12 +13,11 @@ int renameAndMove(char *path, char *filename, char *artist, char *album, char *t
     mkdir(dirname,S_IRWXU | S_IRWXG | S_IRWXO);
     strcat(strcat(strcat(artist," - "),title),".mp3");
     rename(filename, strcat(strcat(dirname,"/"),artist));
-    return 0;
 }
 
+//used to return int
 int setUnknown(char *artist, char *album, char *title){
   strcpy(artist,"Unknown Artist");
   strcpy(album,"Unknown Album");
   strcpy(title,"Unknown Track");
-  return 0;
 }

@@ -53,24 +53,15 @@ int main(int argc, char* argv[])
 
 
 
-int checkFile(FILE* file){ 
-  if(!file){
-    return 0;
-  }
-  if(!checkID3(file)){
-    return 0;
-  }
-  return 1;
-}
 
-int getPath(char *path,int argc,char *argv){
+void getPath(char *path,int argc,char *argv){
   if(argc >= 2){
     strcat(strcpy(path,argv),"/");                 
   }                                                   
   else{
     strcpy(path,"./");
   }
-  return 0;
+  //return 0;
 }
 
 const char *get_filename_ext(const char *filename) {

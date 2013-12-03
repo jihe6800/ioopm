@@ -2,13 +2,15 @@ import java.util.Random;
 
 public class Quicksort {
 
-	/** Sorts an array with an insertion algorithm from index start to index end.
-	 * 
-	 * @param arr The array which needs to be sorted.
-	 * @param start From which value the sorting will begin.
-	 * @param end Too which value the sorting will continue.
-	 */
-	
+
+    /**
+     * Sorts 'arr' from index 'start' to index 'end' with an insertion sort.
+     *
+     * @param The array to be sorted.
+     * @param Will be sorted from this index.
+     * @param Will be sorted to this index.
+     */
+
     private static void insertionSort(final int[] arr, final int start, final int end) {
         for (int i = start + 1; i < end; ++i) {
          int j = i;
@@ -21,7 +23,16 @@ public class Quicksort {
         }
     }
 
-    
+
+    /**
+     * Sorts 'arr' from index 'start' to index 'end' with a quicksort. If
+     * (end - start) < 30, the function sorts it with an insertion sort.
+     *
+     * @param The array to be sorted.
+     * @param Will be sorted from this index.
+     * @param Will be sorted to this index.
+     */    
+
     private static void sQsort(final int[] arr, final int start, final int end) {
         
     	if((end - start) < 30) {	
@@ -81,14 +92,23 @@ public class Quicksort {
 	    }
         }
     }
+
+    /**
+     * Sorts 'arr'.
+     *
+     * @param The array to be sorted.
+     */
+
     
     public static void sQsort(final int[] arr) {
         sQsort(arr, 0, arr.length-1);
     }
     
-    /*public static void insertionSortTest(final int[] arr){
-    	insertionSort(arr, 0, arr.length);
-    }*/
+
+    /**
+     * @param The array to be checked.
+     * @return Returns true if 'arr' is sorted in an ascending order.
+     */
     
     public static boolean sortCheck(int[] arr){
     
@@ -107,6 +127,13 @@ public class Quicksort {
     		}
     	return true;
     }
+
+    /**
+     * Creates an int array of size 'length'.
+     *
+     * @param The size of the array.
+     * @return An array of size 'length'.
+     */
     
     public static int[] arrayGenerator(int length){
     
@@ -118,6 +145,11 @@ public class Quicksort {
     	}
     	return arr;
     }
+
+    /**
+     * @param The array which will be cloned.
+     * @return A clone of 'arr'
+     */
     
     public static int[] clone(int[] arr){
     	int[] newArr = new int[arr.length];
@@ -127,6 +159,12 @@ public class Quicksort {
     	}
     	return newArr;
     }
+
+    /**
+     * @param The first array.
+     * @param The second array.
+     * @return True if every element in 'arr' has the same value as in 'otherArray', else false.
+     */
     
     public static boolean equals(int[] arr, int[] otherArr){
     

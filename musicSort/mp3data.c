@@ -4,6 +4,58 @@
 #include <stdlib.h>
 #include "mp3data.h"
 
+
+
+
+int checkID3(FILE* file){
+  char buffer[3];
+  for(int i=0;i<10;i++){
+    fseek(file,0,SEEK_SET);
+    fread(buffer,sizeof(char),sizeof(buffer),file);
+    if(!strcmp("ID3",buffer)){
+      return 1;  
+    }
+     }
+  return 0;
+}
+
+
+int checkFile(FILE* file){ 
+  if(!file){
+    return 0;
+  }
+  if(!checkID3(file)){
+    return 0;
+  }
+  return 1;
+}
+
+//used to return int
+void getFrame(char *tag, char *frame, FILE* file){
+  char tagbuffer[5];
+  char framebuffer[250];
+  for(int counter=0;counter<3000;counter++){
+    fseek(file,counter,SEEK_SET);
+    fread(tagbuffer,sizeof(char),sizeof(tagbuffer),file);
+    if(!strcmp(tag,tagbuffer)){
+      fseek(file,counter+10,SEEK_SET);
+      fread(framebuffer,sizeof(char),sizeof(framebuffer),file);
+      strcpy(frame, convert_content(framebuffer, sizeof(framebuffer)));
+      //return 0;
+    }
+  }
+  //return 0;
+}
+
+void getFrames(char *artist, char *album, char *title, FILE *file){
+  getFrame("TPE1",artist,file);
+  getFrame("TALB",album,file);
+  getFrame("TIT2",title,file);
+  //return 0;
+}
+
+
+
 char *convert_content(const char *content, size_t size) {
   char *encoding;
   switch (*content) {
@@ -47,42 +99,3 @@ char *convert_content(const char *content, size_t size) {
   return NULL;
 
 }
-
-
-int checkID3(FILE* file){
-  char buffer[3];
-  for(int i=0;i<10;i++){
-    fseek(file,0,SEEK_SET);
-    fread(buffer,sizeof(char),sizeof(buffer),file);
-    if(!strcmp("ID3",buffer)){
-      return 1;  
-    }
-     }
-  return 0;
-}
-
-int getFrame(char *tag, char *frame, FILE* file){
-  char tagbuffer[5];
-  char framebuffer[250];
-  for(int counter=0;counter<3000;counter++){
-    fseek(file,counter,SEEK_SET);
-    fread(tagbuffer,sizeof(char),sizeof(tagbuffer),file);
-    if(!strcmp(tag,tagbuffer)){
-      fseek(file,counter+10,SEEK_SET);
-      fread(framebuffer,sizeof(char),sizeof(framebuffer),file);
-      strcpy(frame, convert_content(framebuffer, sizeof(framebuffer)));
-      return 0;
-    }
-  }
-  return 0;
-}
-
-int getFrames(char *artist, char *album, char *title, FILE *file){
-  getFrame("TPE1",artist,file);
-  getFrame("TALB",album,file);
-  getFrame("TIT2",title,file);
-  return 0;
-}
-
-
-

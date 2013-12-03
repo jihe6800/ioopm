@@ -6,7 +6,7 @@ public class ParallelQuicksort extends RecursiveAction {
 	int start;
 	int end;
 	int sequentialThreshold;
-	
+
 	
 	public ParallelQuicksort(int[] arr) {
 		this(arr, 0, arr.length-1, 1000);
@@ -22,6 +22,10 @@ public class ParallelQuicksort extends RecursiveAction {
 		this.end = end;
 		this.sequentialThreshold = sequentialThreshold;
 	}
+
+    /**
+     * Uses fork and join to sort an array. 
+     */
 
 	@Override
 	public void compute() {
@@ -41,6 +45,17 @@ public class ParallelQuicksort extends RecursiveAction {
     		
     	}
     }
+
+
+    /**
+     * Arranges so every int which is less than the int at index 'pivotIndex'
+     * in arr is to the left of pivotIndex and every int which is equal or greater is
+     * to the right.
+     *
+     * @param The index which the pivot-value is located at.
+     * @return
+     */
+
 	
 	private int partition(int pivotIndex){
 		int pivotValue = arr[pivotIndex];
@@ -58,6 +73,14 @@ public class ParallelQuicksort extends RecursiveAction {
 		swap(storeIndex, end);
 		return storeIndex;
 	}
+
+    /**
+     * Swap places on the value at index 'i' with index 'j' in arr, if
+     * i != j. 
+     *
+     * @param The first index.
+     * @param The second index.
+     */
 	
 	private void swap(int i, int j){
 		if(i != j){
@@ -68,6 +91,14 @@ public class ParallelQuicksort extends RecursiveAction {
 		}
 	}
 	
+
+    /**
+     * Sorts 'arr' from index 'start' to index 'end' with an insertion sort.
+     *
+     * @param The array to be sorted.
+     * @param Will be sorted from this index.
+     * @param Will be sorted to this index.
+     */
     
     private static void insertionSort(final int[] arr, final int start, final int end) {
         for (int i = start + 1; i < end; ++i) {
@@ -80,7 +111,17 @@ public class ParallelQuicksort extends RecursiveAction {
          arr[j] = tmp;
         }
     }
-    
+
+
+
+    /**
+     * Sorts 'arr' from index 'start' to index 'end' with a quicksort. If
+     * (end - start) < 30, the function sorts it with an insertion sort.
+     *
+     * @param The array to be sorted.
+     * @param Will be sorted from this index.
+     * @param Will be sorted to this index.
+     */    
 
     private static void sQsort(final int[] arr, final int start, final int end) {
         
@@ -89,48 +130,32 @@ public class ParallelQuicksort extends RecursiveAction {
         } else {
     	int left = start;
         int right = end + 1;
-        // We simply pick the first element as pivot..
+
         final int pivot = arr[start];
         int tmp;
         
-        // Rearranging the elements around the pivot, so that
-        // elements smaller than the pivot end up to the left
-        // and elements bigger than the pivot end up to the
-        // right.
         do {
                 
-         // As long as elements to the left are less than
-         // the pivot we just continue.
          do {
                 left++;
          } while (left <= end && arr[left] < pivot);
         
-         // As long as the elements to the right are
-         // greater than the pivot we just continue.
          do {
                 right--;
          } while (arr[right] > pivot);
-        
-         // If left is less than right we have values on
-         // the wrong side of the pivot, so we swap them.
+
          if (left < right) {
                 tmp = arr[left];
                 arr[left] = arr[right];
                 arr[right] = tmp;
          }
-        
-         // We continue doing this until all elements are
-         // arranged correctly around the pivot.
+
         } while (left <= right);
         
-        // Now put the pivot in the right place.
+
         tmp = arr[start];
         arr[start] = arr[right];
         arr[right] = tmp;
-        
-        // We have now "split" the range arr[start, end] into
-        // two parts around the pivot value. We recurse to
-        // sort those parts.
         
         if (start < right) {
          sQsort(arr, start, right);
@@ -141,6 +166,12 @@ public class ParallelQuicksort extends RecursiveAction {
         }
         }
     }
+
+    /**
+     * Sorts 'arr'.
+     *
+     * @param The array to be sorted.
+     */
 
     public static void sQsort(final int[] arr) {
         sQsort(arr, 0, arr.length-1);
